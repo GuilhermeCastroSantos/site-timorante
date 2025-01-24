@@ -229,3 +229,16 @@ source {
     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.505);
 }
 
+form {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+}
+
+#newsContainer {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
