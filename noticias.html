@@ -40,6 +40,19 @@
                 </div>
                 
                 <script>
+                    // Função para carregar as notícias do localStorage
+                    function loadNews() {
+                        const savedNews = JSON.parse(localStorage.getItem('news')) || [];
+                        const newsList = document.getElementById('newsList');
+                
+                        savedNews.forEach(news => {
+                            const newsItem = document.createElement('li');
+                            newsItem.innerHTML = `<strong>${news.title}</strong>: ${news.content}`;
+                            newsList.appendChild(newsItem);
+                        });
+                    }
+                
+                    // Função para enviar notícia
                     function submitNews() {
                         const title = document.getElementById('title').value;
                         const content = document.getElementById('content').value;
@@ -50,6 +63,11 @@
                             newsItem.innerHTML = `<strong>${title}</strong>: ${content}`;
                             newsList.appendChild(newsItem);
                 
+                            // Armazenar a notícia no localStorage
+                            const savedNews = JSON.parse(localStorage.getItem('news')) || [];
+                            savedNews.push({ title, content });
+                            localStorage.setItem('news', JSON.stringify(savedNews));
+                
                             // Limpar campos após envio
                             document.getElementById('title').value = '';
                             document.getElementById('content').value = '';
@@ -57,8 +75,10 @@
                             alert('Por favor, preencha todos os campos antes de enviar.');
                         }
                     }
+                
+                    // Carregar as notícias ao carregar a página
+                    window.onload = loadNews;
                 </script>
-                </form>   
             </article>
             <article>
                 <h1>Eventos Locais</h1>
