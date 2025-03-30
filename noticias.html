@@ -24,18 +24,40 @@
         <section id="">
             <article>
                 <h1>Últimas Notícias</h1>
-                <form id="neuwsForms">
+                <form id="newsForm">
                     <label for="title">Título da Notícia:</label><br>
-                    <input type="text" id="title" nome="title" required><br><br>
-
-                    <label for="content">Conteúdo da Notícias:</label><br>
-                    <textarea id="content" nome="content" rows="10" cols="50" required></textarea><br><br>
-
-                    <button type="submit">Enviar Notícia</button>
-
-                    <div id="newsContainer">
-                        <h2>Notícias Recentes</h2>
-                    </div>
+                    <input type="text" id="title" name="title" required><br><br>
+                
+                    <label for="content">Conteúdo da Notícia:</label><br>
+                    <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+                
+                    <button type="button" onclick="submitNews()">Enviar Notícia</button>
+                </form>
+                
+                <div id="newsContainer">
+                    <h2>Notícias Recentes</h2>
+                    <ul id="newsList"></ul>
+                </div>
+                
+                <script>
+                    function submitNews() {
+                        const title = document.getElementById('title').value;
+                        const content = document.getElementById('content').value;
+                
+                        if (title && content) {
+                            const newsList = document.getElementById('newsList');
+                            const newsItem = document.createElement('li');
+                            newsItem.innerHTML = `<strong>${title}</strong>: ${content}`;
+                            newsList.appendChild(newsItem);
+                
+                            // Limpar campos após envio
+                            document.getElementById('title').value = '';
+                            document.getElementById('content').value = '';
+                        } else {
+                            alert('Por favor, preencha todos os campos antes de enviar.');
+                        }
+                    }
+                </script>
                 </form>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate natus optio animi iusto praesentium saepe similique assumenda incidunt maxime, voluptatibus est soluta suscipit unde aut voluptatem, reiciendis quae sint accusamus.
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quas reiciendis repellendus explicabo atque quos similique tenetur vitae hic, facere dolore, a ea libero eaque, quibusdam inventore ullam eos itaque?</p>   
