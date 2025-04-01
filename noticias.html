@@ -37,7 +37,7 @@
                 </form>
                 
                 <div id="newsContainer" style="margin-top: 20px;">
-                    <h2 style="color: #007BFF; text-align: center; font-family: Arial, sans-serif; font-size: 24px;">📰 Notícias Recentes</h2>
+                    <h2 style="color: #007BFF; text-align: center; font-family: Arial, sans-serif; font-size: 24px;">📰 Últimas Notícias</h2>
                 </div>
                 
                 <script>
@@ -53,9 +53,8 @@
                             newsDiv.style.marginBottom = "10px";
                             newsDiv.style.backgroundColor = "#FFFFFF";
                             newsDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-                            newsDiv.style.display = "block"; // Sempre visível
-                            newsDiv.style.visibility = "visible"; // Garante visibilidade padrão
                 
+                            // Exibir título e conteúdo imediatamente
                             newsDiv.innerHTML = `
                                 <h3 style="color: #007BFF; margin-bottom: 10px; font-size: 18px;">${news.title}</h3>
                                 <p style="color: #333; font-size: 14px; line-height: 1.5;">${news.content}</p>
@@ -78,9 +77,8 @@
                             newsDiv.style.marginBottom = "10px";
                             newsDiv.style.backgroundColor = "#FFFFFF";
                             newsDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-                            newsDiv.style.display = "block"; // Sempre visível
-                            newsDiv.style.visibility = "visible"; // Garante visibilidade padrão
                 
+                            // Exibir título e conteúdo imediatamente
                             newsDiv.innerHTML = `
                                 <h3 style="color: #007BFF; margin-bottom: 10px; font-size: 18px;">${title}</h3>
                                 <p style="color: #333; font-size: 14px; line-height: 1.5;">${content}</p>
@@ -91,6 +89,7 @@
                             savedNews.push({ title, content });
                             localStorage.setItem('news', JSON.stringify(savedNews));
                 
+                            // Limpar os campos do formulário
                             document.getElementById('title').value = '';
                             document.getElementById('content').value = '';
                         } else {
@@ -100,22 +99,6 @@
                 
                     window.onload = loadNews;
                 </script>
-            </article>
-            <article>
-                <h1>Eventos Locais</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore obcaecati aliquid aperiam pariatur! Facilis quod quam nostrum repellat tempore, sequi debitis cum optio eum molestias dolores quia! Dolorum, qui sequi.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda earum reiciendis aut mollitia porro, excepturi doloremque cumque? Necessitatibus officiis deleniti numquam, dolor neque pariatur distinctio corrupti odio quas nulla?</p>
-            </article>
-            <article>
-                <h1>Comunicados Oficiais</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quod porro sint perferendis ut nostrum architecto ex adipisci quasi id illum sed quo, fugiat iusto officia omnis distinctio quos et!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta accusantium voluptatem quos eveniet ducimus, officia voluptates beatae possimus expedita modi et laborum excepturi vero fuga reprehenderit dolores totam? Et, eum?</p>
-            </article>
-            <article>
-                <h1>Destaques Comunitários</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe expedita quas illum doloremque ut dicta accusantium cupiditate, earum vel porro provident molestiae fugit! Magnam soluta veniam saepe voluptate eligendi! Fugit!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, minus maxime. Veniam alias unde vel deserunt commodi vero. Culpa dolores provident totam cum accusamus molestias. Cupiditate ut impedit aliquam a?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dignissimos incidunt minima commodi aliquid dicta dolore ea suscipit doloremque sunt tenetur architecto asperiores, illum exercitationem maiores, deserunt hic quae sint?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi modi unde vero incidunt, inventore aliquam, minima nobis ex atque quod, repellat ipsa ullam. Numquam blanditiis placeat quo aut optio nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum sequi vel quod maxime perferendis dignissimos voluptates ullam inventore harum, accusamus eaque possimus ad exercitationem porro reiciendis accusantium. Iure, adipisci.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque id enim architecto non iure reprehenderit eligendi hic aspernatur quo animi, nisi quos voluptatum odit aperiam tempora? Quasi atque debitis beatae.</p>
             </article>
         </section>
         <section>
