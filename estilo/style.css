@@ -101,9 +101,9 @@ div:hover > p {
     color: black;
 }
 
-div:hover {
+/*div:hover {
     background-color: rgba(37, 69, 4, 0.878);
-}
+}*/
 
 main {
     background-color: white;
