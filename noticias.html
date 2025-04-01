@@ -33,44 +33,58 @@
                     <label for="content">Conteúdo da Notícia:</label><br>
                     <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
                 
-                    <button type="button" onclick="submitNews()">Postar</button>
+                    <button type="button" onclick="submitNews()">Enviar Notícia</button>
                 </form>
                 
-                <div id="newsContainer">
-                    <h2>Notícias Recentes</h2>
-                    <ul id="newsList"></ul>
+                <div id="newsContainer" style="margin-top: 20px;">
+                    <h2 style="color: #007BFF; text-align: center; font-family: Arial, sans-serif; font-size: 24px;">📰 Notícias Recentes</h2>
                 </div>
                 
                 <script>
-                    // Função para carregar as notícias do localStorage
                     function loadNews() {
                         const savedNews = JSON.parse(localStorage.getItem('news')) || [];
-                        const newsList = document.getElementById('newsList');
+                        const newsContainer = document.getElementById('newsContainer');
                 
                         savedNews.forEach(news => {
-                            const newsItem = document.createElement('li');
-                            newsItem.innerHTML = `<strong>${news.title}</strong>: ${news.content}`;
-                            newsList.appendChild(newsItem);
+                            const newsDiv = document.createElement('div');
+                            newsDiv.style.border = "1px solid #007BFF";
+                            newsDiv.style.borderRadius = "10px";
+                            newsDiv.style.padding = "15px";
+                            newsDiv.style.marginBottom = "10px";
+                            newsDiv.style.backgroundColor = "#FFFFFF";
+                
+                            newsDiv.innerHTML = `
+                                <h3 style="color: #007BFF; margin-bottom: 5px;">${news.title}</h3>
+                                <p style="color: #333;">${news.content}</p>
+                            `;
+                            newsContainer.appendChild(newsDiv);
                         });
                     }
                 
-                    // Função para enviar notícia
                     function submitNews() {
                         const title = document.getElementById('title').value;
                         const content = document.getElementById('content').value;
                 
                         if (title && content) {
-                            const newsList = document.getElementById('newsList');
-                            const newsItem = document.createElement('li');
-                            newsItem.innerHTML = `<strong>${title}</strong>: ${content}`;
-                            newsList.appendChild(newsItem);
+                            const newsContainer = document.getElementById('newsContainer');
                 
-                            // Armazenar a notícia no localStorage
+                            const newsDiv = document.createElement('div');
+                            newsDiv.style.border = "1px solid #007BFF";
+                            newsDiv.style.borderRadius = "10px";
+                            newsDiv.style.padding = "15px";
+                            newsDiv.style.marginBottom = "10px";
+                            newsDiv.style.backgroundColor = "#FFFFFF";
+                
+                            newsDiv.innerHTML = `
+                                <h3 style="color: #007BFF; margin-bottom: 5px;">${title}</h3>
+                                <p style="color: #333;">${content}</p>
+                            `;
+                            newsContainer.appendChild(newsDiv);
+                
                             const savedNews = JSON.parse(localStorage.getItem('news')) || [];
                             savedNews.push({ title, content });
                             localStorage.setItem('news', JSON.stringify(savedNews));
                 
-                            // Limpar campos após envio
                             document.getElementById('title').value = '';
                             document.getElementById('content').value = '';
                         } else {
@@ -78,7 +92,6 @@
                         }
                     }
                 
-                    // Carregar as notícias ao carregar a página
                     window.onload = loadNews;
                 </script>
             </article>
